@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Michelle D. Mohr">
+
+<title>Lab 1 Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="lab1practice_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lab1practice_files/libs/quarto-html/quarto.js"></script>
+<script src="lab1practice_files/libs/quarto-html/popper.min.js"></script>
+<script src="lab1practice_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="lab1practice_files/libs/quarto-html/anchor.min.js"></script>
+<link href="lab1practice_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lab1practice_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="lab1practice_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="lab1practice_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="lab1practice_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#analysis-part-1" id="toc-analysis-part-1" class="nav-link" data-scroll-target="#analysis-part-1">Analysis Part 1</a>
+  <ul class="collapse">
+  <li><a href="#plot-untransformed-data" id="toc-plot-untransformed-data" class="nav-link" data-scroll-target="#plot-untransformed-data">Plot untransformed data</a></li>
+  <li><a href="#plot-log-transformed-data" id="toc-plot-log-transformed-data" class="nav-link" data-scroll-target="#plot-log-transformed-data">Plot log-transformed data</a>
+  <ul class="collapse">
+  <li><a href="#log-transformed-in-data-frame-and-on-the-fly" id="toc-log-transformed-in-data-frame-and-on-the-fly" class="nav-link" data-scroll-target="#log-transformed-in-data-frame-and-on-the-fly">Log-transformed in data frame and on the fly</a></li>
+  <li><a href="#plot-untransformed-data-but-on-logarithmic-axis" id="toc-plot-untransformed-data-but-on-logarithmic-axis" class="nav-link" data-scroll-target="#plot-untransformed-data-but-on-logarithmic-axis">Plot untransformed data but on logarithmic axis</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#analysis-part-2" id="toc-analysis-part-2" class="nav-link" data-scroll-target="#analysis-part-2">Analysis Part 2</a>
+  <ul class="collapse">
+  <li><a href="#untransformed" id="toc-untransformed" class="nav-link" data-scroll-target="#untransformed">Untransformed</a></li>
+  <li><a href="#log-transformed" id="toc-log-transformed" class="nav-link" data-scroll-target="#log-transformed">Log-transformed</a></li>
+  <li><a href="#followup-questions" id="toc-followup-questions" class="nav-link" data-scroll-target="#followup-questions">Followup questions</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lab 1 Practice</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Michelle D. Mohr </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>gapminder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+<section id="instructions" class="level1">
+<h1>Instructions</h1>
+<p>Try on your own:</p>
+<p>In your github account, create a new repository called, “lab1_practice”, then clone it to your laptopIn the new R project:</p>
+<ol type="1">
+<li><p>Create a new Quarto document. If you like, set up the header for code folding. set echo, message, and warning like we did in lab.</p></li>
+<li><p>Attach tidyverse and the gapminder package (you might need to install gapminder)</p></li>
+<li><p>For each year and continent, summarize the average per-capita GDP across all countries in the continent. Hint: don’t just average the country-level values - need to consider country populations!</p></li>
+<li><p>Plot the continent- level GDP values in a scatter plot. Bonus, plot the country level values as well, with a low alpha to fade them into the background.</p></li>
+<li><p>Redo the scatter plot but this times, log transform the GDP data (either in the dataframe using the ‘mutate’, or on the plot with ‘scale_y_log10()’)</p></li>
+</ol>
+<p>Based on the plots, choose either regular or log transformed data, and use a linear regression to estimate annual change in per capita GDP <em>or</em> log(per capita GDP) accounting for continent.</p>
+<ul>
+<li>Write a sentence or two describing the trends in the plots.</li>
+<li>Write a sentence or two to explain the cooefficients in the linear model, including statistical significance.</li>
+<li>Which continent is the “reference” continent? why might that be?</li>
+<li>What do the coefficients on each continent represent? Do these make intuitive sense?</li>
+<li>Does a linear model seem like a good way to approach these data? why or why not?</li>
+</ul>
+<p>When done, render your Quarto doc, then stage, commit, and push back to Github. Congrats, you did it!</p>
+</section>
+<section id="analysis-part-1" class="level1">
+<h1>Analysis Part 1</h1>
+<p>For each year and continent, summarize the average per-capita GDP across all countries in the continent. Hint: don’t just average the country-level values - need to consider country populations!</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>continent_mean_gdp <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year,continent) <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_gdp =</span> <span class="fu">sum</span>(gdpPercap <span class="sc">*</span> pop) <span class="sc">/</span> <span class="fu">sum</span>(pop),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            <span class="do">### log transform the data</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">log_mean_gdp =</span> <span class="fu">log</span>(mean_gdp)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="plot-untransformed-data" class="level2">
+<h2 class="anchored" data-anchor-id="plot-untransformed-data">Plot untransformed data</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(continent_mean_gdp, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_gdp, <span class="at">color =</span> continent)) <span class="sc">+</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="do">## continents as points:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="do">## and/or continenents as lines:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="do">## use original data to show countries, still by year and continent, </span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="do">## using alpha to fade the points relative to the main points</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="do">## geom_jitter shuffles them a little so points don't stack on top of one another</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">data =</span> gapminder, <span class="fu">aes</span>(<span class="at">y=</span>gdpPercap), <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span> </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Per capita GDP ($)"</span>, <span class="at">color =</span> <span class="st">"Continent"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="lab1practice_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="plot-log-transformed-data" class="level2">
+<h2 class="anchored" data-anchor-id="plot-log-transformed-data">Plot log-transformed data</h2>
+<p>Ways to plot transformed data:</p>
+<ul>
+<li><p>Log-transformed data in the dataframe (as Casey did it)</p></li>
+<li><p>Log-transformed on the fly (as is the code provided)</p></li>
+<li><p>Don’t transform, but use log - scaled axis (see next chunk)</p></li>
+</ul>
+<section id="log-transformed-in-data-frame-and-on-the-fly" class="level3">
+<h3 class="anchored" data-anchor-id="log-transformed-in-data-frame-and-on-the-fly">Log-transformed in data frame and on the fly</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(continent_mean_gdp, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> log_mean_gdp, <span class="at">color =</span> continent)) <span class="sc">+</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#note, log-transforming on the fly for our y axis here!</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">data =</span> gapminder, <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">log</span>(gdpPercap)), <span class="at">alpha =</span> .<span class="dv">2</span>)<span class="sc">+</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y=</span> <span class="st">"log(per capita GDP ($))"</span>, <span class="at">color =</span> <span class="st">"Continent"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="lab1practice_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="plot-untransformed-data-but-on-logarithmic-axis" class="level3">
+<h3 class="anchored" data-anchor-id="plot-untransformed-data-but-on-logarithmic-axis">Plot untransformed data but on logarithmic axis</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(continent_mean_gdp, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_gdp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">data =</span> gapminder, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap), <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"log(per capita GDP ($))"</span>, <span class="at">color =</span> <span class="st">"Continent"</span>) <span class="sc">+</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="lab1practice_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Note: log(mean_gdp) is te <em>natural log</em> (base <em>e</em>) while scale_y_log10() is the log<sub>10</sub> or base 10. So the y axis numbers will be different, even if the shape is the same!</p>
+</section>
+</section>
+</section>
+<section id="analysis-part-2" class="level1">
+<h1>Analysis Part 2</h1>
+<p>Answers may vary depending on choice of log - transformed or untransformed data. Casey’s examples show both</p>
+<section id="untransformed" class="level2">
+<h2 class="anchored" data-anchor-id="untransformed">Untransformed</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gdp_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean_gdp <span class="sc">~</span> year <span class="sc">+</span> continent, <span class="at">data =</span> continent_mean_gdp)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gdp_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = mean_gdp ~ year + continent, data = continent_mean_gdp)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-5237.2 -1723.3   -19.9  1436.2  7541.5 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       -416647.4    40184.9  -10.37 1.87e-14 ***
+year                  211.5       20.3   10.42 1.56e-14 ***
+continentAmericas   12334.3     1107.8   11.13 1.33e-15 ***
+continentAsia         554.4     1107.8    0.50    0.619    
+continentEurope     13119.1     1107.8   11.84  &lt; 2e-16 ***
+continentOceania    17544.9     1107.8   15.84  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2714 on 54 degrees of freedom
+Multiple R-squared:  0.9061,    Adjusted R-squared:  0.8974 
+F-statistic: 104.2 on 5 and 54 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>gdp_coef <span class="ot">&lt;-</span> <span class="fu">coefficients</span>(gdp_lm) </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>gdp_coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>      (Intercept)              year continentAmericas     continentAsia 
+     -416647.3822          211.4826        12334.2842          554.3528 
+  continentEurope  continentOceania 
+       13119.0992        17544.9272 </code></pre>
+</div>
+</div>
+</section>
+<section id="log-transformed" class="level2">
+<h2 class="anchored" data-anchor-id="log-transformed">Log-transformed</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>log_gdp_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(log_mean_gdp <span class="sc">~</span> year <span class="sc">+</span> continent, <span class="at">data =</span> continent_mean_gdp) </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(log_gdp_lm) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = log_mean_gdp ~ year + continent, data = continent_mean_gdp)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.41327 -0.05440  0.01794  0.07959  0.33809 
+
+Coefficients:
+                    Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       -34.041032   2.313494 -14.714   &lt;2e-16 ***
+year                0.021023   0.001169  17.991   &lt;2e-16 ***
+continentAmericas   1.954056   0.063779  30.638   &lt;2e-16 ***
+continentAsia       0.110523   0.063779   1.733   0.0888 .  
+continentEurope     1.965103   0.063779  30.811   &lt;2e-16 ***
+continentOceania    2.241994   0.063779  35.153   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1562 on 54 degrees of freedom
+Multiple R-squared:  0.9805,    Adjusted R-squared:  0.9786 
+F-statistic: 541.8 on 5 and 54 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>log_gdp_coef <span class="ot">&lt;-</span> <span class="fu">coefficients</span>(log_gdp_lm) </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>log_gdp_coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>      (Intercept)              year continentAmericas     continentAsia 
+      -34.0410317         0.0210227         1.9540557         0.1105233 
+  continentEurope  continentOceania 
+        1.9651027         2.2419936 </code></pre>
+</div>
+</div>
+</section>
+<section id="followup-questions" class="level2">
+<h2 class="anchored" data-anchor-id="followup-questions">Followup questions</h2>
+<ol type="1">
+<li>Trends: In both plots, we see most continents on average have increasing values. Here we’ll look at coefficients for both models.</li>
+<li>Coefficients (non-transformed):
+<ol type="a">
+<li>Year: This coefficient indicates that on average, across all continents, per capita GDP is increasing by 211.48 per year.</li>
+<li>The continent coefficients show how much greater, on average, per capita GDP is for each continent (shift in the intercept), relative to a baseline of Africa (which is baseline in this case because it is alphabetically first)</li>
+<li>The intercept would be the predicted per capita GDP (if our model is accurate) at year zero. Obviously our model breaks down somewhere along the way…</li>
+</ol></li>
+<li>Coefficients (log-transformed):
+<ol type="a">
+<li>Year: on average, this shows that log(per cap gdp) is increasing by 0.021 per year. Through the magic of logarithms, the slope here indicates growth rate, so this indicates an average growth rate of per-cap GDP of about 2.1%.</li>
+<li>As for the non-transformed, the continent coefficients show a shift in the intercept, which still means a difference in GDP of a continent relative to Africa’s, though here log-transformed.</li>
+<li>Our intercept again shows the (log-transformed) predicted income at year zero.</li>
+</ol></li>
+<li>Because GDP growth is most likely exponential over time, the log-transformed model is theoretically a better choice. Because the slopes are (relatively) similar, it shows that per cap GDP growth is pretty consistent across continents (except Africa), even if the starting points are different. In either case, we know that any predictions we make with our model should be limited to a fairly narrow time frame - certainly not 2000 years, but maybe 20-30 years.</li>
+</ol>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
